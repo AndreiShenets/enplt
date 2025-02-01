@@ -3,7 +3,7 @@ using Enplt.Services.Api.Domain;
 
 namespace Enplt.Services.Api.SaleManagerAvailability;
 
-public interface ISaleManagerAvailabilityRepository
+public interface ISaleManagerAvailabilityDataAccessor
 {
     Task<List<CalendarSlotEntity>> GetCalendarSlotsAsync(
         DateOnly date,

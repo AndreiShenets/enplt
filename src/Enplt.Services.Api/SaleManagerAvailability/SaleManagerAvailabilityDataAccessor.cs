@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Enplt.Services.Api.SaleManagerAvailability;
 
-public sealed class SaleManagerAvailabilityRepository : ISaleManagerAvailabilityRepository
+public sealed class SaleManagerAvailabilityDataAccessor : ISaleManagerAvailabilityDataAccessor
 {
     private readonly IDbContextFactory<DatabaseContext> _dbContextFactory;
 
-    public SaleManagerAvailabilityRepository(IDbContextFactory<DatabaseContext> dbContextFactory)
+    public SaleManagerAvailabilityDataAccessor(IDbContextFactory<DatabaseContext> dbContextFactory)
     {
         _dbContextFactory = dbContextFactory;
     }

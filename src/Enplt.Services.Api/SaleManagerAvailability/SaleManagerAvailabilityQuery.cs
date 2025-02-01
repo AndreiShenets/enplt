@@ -5,11 +5,11 @@ namespace Enplt.Services.Api.SaleManagerAvailability;
 
 public sealed class SaleManagerAvailabilityQuery
 {
-    private readonly ISaleManagerAvailabilityRepository _availabilityRepository;
+    private readonly ISaleManagerAvailabilityDataAccessor _availabilityDataAccessor;
 
-    public SaleManagerAvailabilityQuery(ISaleManagerAvailabilityRepository availabilityRepository)
+    public SaleManagerAvailabilityQuery(ISaleManagerAvailabilityDataAccessor availabilityDataAccessor)
     {
-        _availabilityRepository = availabilityRepository;
+        _availabilityDataAccessor = availabilityDataAccessor;
     }
 
     public async Task<List<Availability>> ExecuteAsync(
@@ -21,7 +21,7 @@ public sealed class SaleManagerAvailabilityQuery
     )
     {
         List<CalendarSlotEntity> slotEntities =
-            await _availabilityRepository.GetCalendarSlotsAsync(
+            await _availabilityDataAccessor.GetCalendarSlotsAsync(
                 date,
                 products,
                 language,
