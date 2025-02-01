@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
+builder.Logging.ClearProviders();
+builder.Logging.AddSimpleConsole();
+
 builder.ConfigureWebHost();
 
 builder.Services.ConfigureHttpJsonOptions();
