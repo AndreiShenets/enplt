@@ -30,7 +30,7 @@ public sealed class SaleManagerAvailabilityDataAccessor : ISaleManagerAvailabili
                     manager =>
                         manager.CustomerRatings.Contains(rating)
                         && manager.Languages.Contains(language)
-                        && manager.Products.Any(p => products.Contains(p))
+                        && products.All(p => manager.Products.Contains(p))
                 )
                 .Select(manager => manager.Id);
 

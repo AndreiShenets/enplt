@@ -58,8 +58,8 @@ public sealed class SaleManagerAvailabilityQuery
             bool slotAlreadyBooked =
                 managerBookedSlots.Any(
                     mbs =>
-                        (mbs.From <= slot.From && slot.From <= mbs.To)
-                        || (mbs.From <= slot.To && slot.To <= mbs.To)
+                        (mbs.From <= slot.From && slot.From < mbs.To)
+                        || (mbs.From < slot.To && slot.To <= mbs.To)
                 );
 
             if (!slotAlreadyBooked)
