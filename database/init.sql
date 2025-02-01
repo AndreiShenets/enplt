@@ -36,3 +36,9 @@ insert into slots (sales_manager_id, booked, start_date, end_date) values (2, tr
 insert into slots (sales_manager_id, booked, start_date, end_date) values (3, true,  '2024-05-04T10:30Z', '2024-05-04T11:30Z');
 insert into slots (sales_manager_id, booked, start_date, end_date) values (3, false, '2024-05-04T11:00Z', '2024-05-04T12:00Z');
 insert into slots (sales_manager_id, booked, start_date, end_date) values (3, false, '2024-05-04T11:30Z', '2024-05-04T12:30Z');
+
+create index sales_managers_customer_ratings_languages_products_index
+on sales_managers using gin (customer_ratings, languages, products);
+
+create index slots_sales_manager_id_start_date_end_date_index
+on slots (sales_manager_id, start_date, end_date);
