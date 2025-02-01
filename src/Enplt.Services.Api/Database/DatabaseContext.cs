@@ -17,27 +17,58 @@ public sealed class DatabaseContext : DbContext
         modelBuilder.Entity<SaleManagerEntity>(
             entity =>
             {
+                entity.ToTable("sales_managers");
+
                 entity.HasKey(e => e.Id);
 
+                entity.Property(e => e.Id).HasColumnName("id");
+
                 entity.Property(e => e.Name)
+                    .HasColumnName("name")
                     .HasMaxLength(250)
                     .IsRequired();
 
-                entity.Property(e => e.Languages).IsRequired();
-                entity.Property(e => e.Products).IsRequired();
-                entity.Property(e => e.CustomerRatings).IsRequired();
+                entity.Property(e => e.Languages)
+                    .HasColumnName("languages")
+                    .HasColumnType("varchar(100)[]")
+                    .IsRequired();
+
+                entity.Property(e => e.Products)
+                    .HasColumnName("products")
+                    .HasColumnType("varchar(100)[]")
+                    .IsRequired();
+
+                entity.Property(e => e.CustomerRatings)
+                    .HasColumnName("customer_ratings")
+                    .HasColumnType("varchar(100)[]")
+                    .IsRequired();
             }
         );
 
         modelBuilder.Entity<CalendarSlotEntity>(
             entity =>
             {
+                entity.ToTable("slots");
+
                 entity.HasKey(e => e.Id);
 
-                entity.Property(e => e.From).IsRequired();
-                entity.Property(e => e.To).IsRequired();
-                entity.Property(e => e.Bookend).IsRequired();
-                entity.Property(e => e.SaleManagerId).IsRequired();
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.From)
+                    .HasColumnName("start_date")
+                    .IsRequired();
+
+                entity.Property(e => e.To)
+                    .HasColumnName("end_date")
+                    .IsRequired();
+
+                entity.Property(e => e.Booked)
+                    .HasColumnName("booked")
+                    .IsRequired();
+
+                entity.Property(e => e.SaleManagerId)
+                    .HasColumnName("sales_manager_id")
+                    .IsRequired();
 
                 entity.HasOne(e => e.SaleManager)
                     .WithMany(m => m.CalendarSlots)

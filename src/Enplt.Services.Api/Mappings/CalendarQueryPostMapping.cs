@@ -12,11 +12,12 @@ public static class CalendarQueryPostMapping
     public static async Task<IResult> ExecuteAsync(
         HttpContext context,
         [FromBody] CalendarQueryRequest request,
-        SaleManagerAvailabilityQuery query
+        SaleManagerAvailabilityQuery query,
+        CancellationToken cancellationToken
     )
     {
         CalendarQueryRequestValidator validator = new ();
-        ValidationResult validationResult = await validator.ValidateAsync(request);
+        ValidationResult validationResult = await validator.ValidateAsync(request, cancellationToken);
         if (!validationResult.IsValid)
         {
             return Results.BadRequest(validationResult.Errors);
@@ -27,7 +28,8 @@ public static class CalendarQueryPostMapping
                 request.Date ?? throw new InvalidOperationException("Date must be specified"),
                 request.Products ?? throw new InvalidOperationException("Products must be specified"),
                 request.Language ?? throw new InvalidOperationException("Language must be specified"),
-                request.Rating ?? throw new InvalidOperationException("Rating must be specified")
+                request.Rating ?? throw new InvalidOperationException("Rating must be specified"),
+                cancellationToken
             );
 
         return Results.Ok(

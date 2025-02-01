@@ -1,21 +1,35 @@
-﻿using Enplt.Services.Api.Domain;
+﻿using Enplt.Services.Api.Database.Entities;
+using Enplt.Services.Api.Domain;
 
 namespace Enplt.Services.Api.SaleManagerAvailability;
 
 public sealed class SaleManagerAvailabilityQuery
 {
-    public SaleManagerAvailabilityQuery(ISaleManagersAvailabilityRepository availabilityRepository)
+    private readonly ISaleManagerAvailabilityRepository _availabilityRepository;
+
+    public SaleManagerAvailabilityQuery(ISaleManagerAvailabilityRepository availabilityRepository)
     {
+        _availabilityRepository = availabilityRepository;
     }
 
-    public Task<List<Availability>> ExecuteAsync(
+    public async Task<List<Availability>> ExecuteAsync(
         DateOnly date,
-        List<Products> products,
+        IReadOnlyCollection<Products> products,
         SpokenLanguages language,
-        CustomerRating rating
+        CustomerRating rating,
+        CancellationToken cancellationToken
     )
     {
-        throw new NotImplementedException();
+        List<CalendarSlotEntity> slotEntities =
+            await _availabilityRepository.GetCalendarSlotsAsync(
+                date,
+                products,
+                language,
+                rating,
+                cancellationToken
+            );
+
+        return [];
     }
 }
 
