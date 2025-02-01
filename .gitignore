@@ -1,0 +1,13 @@
+﻿out/
+bin
+obj
+*.user
+*.suo
+.vs
+.idea/
+.vscode/
+
+*.received.json
+*.received.txt
+
+appsettings.Local.json
