@@ -6,6 +6,7 @@ obj
 .vs
 .idea/
 .vscode/
+node_modules/
 
 *.received.json
 *.received.txt
