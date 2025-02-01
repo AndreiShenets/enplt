@@ -1,0 +1,12 @@
+@Host = http://localhost:3000
+
+POST {{Host}}/calendar/query
+Accept: application/json
+Content-Type: application/json
+
+{
+    "date": "2024-05-03",
+    "products": ["SolarPanels", "Heatpumps"],
+    "language": "German",
+    "rating": "Gold"
+}
