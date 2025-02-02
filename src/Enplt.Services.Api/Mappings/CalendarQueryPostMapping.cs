@@ -9,6 +9,8 @@ namespace Enplt.Services.Api.Mappings;
 
 public static class CalendarQueryPostMapping
 {
+    private static readonly CalendarQueryRequestValidator Validator = new ();
+
     public static async Task<IResult> ExecuteAsync(
         HttpContext context,
         [FromBody] CalendarQueryRequest request,
@@ -16,8 +18,7 @@ public static class CalendarQueryPostMapping
         CancellationToken cancellationToken
     )
     {
-        CalendarQueryRequestValidator validator = new ();
-        ValidationResult validationResult = await validator.ValidateAsync(request, cancellationToken);
+        ValidationResult validationResult = await Validator.ValidateAsync(request, cancellationToken);
         if (!validationResult.IsValid)
         {
             return Results.BadRequest(validationResult.Errors);
