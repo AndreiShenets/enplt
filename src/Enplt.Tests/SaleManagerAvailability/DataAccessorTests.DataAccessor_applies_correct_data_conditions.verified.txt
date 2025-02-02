@@ -1,0 +1,44 @@
+﻿[
+  {
+    Id: 4,
+    From: 2024-05-03 10:30 +0,
+    To: 2024-05-03 11:30 +0,
+    Booked: false,
+    SaleManagerId: 2
+  },
+  {
+    Id: 5,
+    From: 2024-05-03 11:00 +0,
+    To: 2024-05-03 12:00 +0,
+    Booked: false,
+    SaleManagerId: 2
+  },
+  {
+    Id: 6,
+    From: 2024-05-03 11:30 +0,
+    To: 2024-05-03 12:30 +0,
+    Booked: false,
+    SaleManagerId: 2
+  },
+  {
+    Id: 7,
+    From: 2024-05-03 10:30 +0,
+    To: 2024-05-03 11:30 +0,
+    Booked: true,
+    SaleManagerId: 3
+  },
+  {
+    Id: 8,
+    From: 2024-05-03 11:00 +0,
+    To: 2024-05-03 12:00 +0,
+    Booked: false,
+    SaleManagerId: 3
+  },
+  {
+    Id: 9,
+    From: 2024-05-03 11:30 +0,
+    To: 2024-05-03 12:30 +0,
+    Booked: false,
+    SaleManagerId: 3
+  }
+]

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Enplt.Services.Api.Database;
 
-public sealed class DatabaseContext : DbContext
+public class DatabaseContext : DbContext, IDatabaseContext
 {
     public DbSet<SaleManagerEntity> SaleManagers { get; set; } = null!;
     public DbSet<CalendarSlotEntity> CalendarSlots { get; set; } = null!;

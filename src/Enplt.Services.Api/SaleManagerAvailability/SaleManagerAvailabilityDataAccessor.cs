@@ -7,9 +7,9 @@ namespace Enplt.Services.Api.SaleManagerAvailability;
 
 public sealed class SaleManagerAvailabilityDataAccessor : ISaleManagerAvailabilityDataAccessor
 {
-    private readonly IDbContextFactory<DatabaseContext> _dbContextFactory;
+    private readonly IDatabaseContextFactory _dbContextFactory;
 
-    public SaleManagerAvailabilityDataAccessor(IDbContextFactory<DatabaseContext> dbContextFactory)
+    public SaleManagerAvailabilityDataAccessor(IDatabaseContextFactory dbContextFactory)
     {
         _dbContextFactory = dbContextFactory;
     }
@@ -18,11 +18,11 @@ public sealed class SaleManagerAvailabilityDataAccessor : ISaleManagerAvailabili
         DateOnly date,
         IReadOnlyCollection<Products> products,
         SpokenLanguages language,
-        CustomerRating rating,
+        CustomerRatings rating,
         CancellationToken cancellationToken
     )
     {
-        await using DatabaseContext dbContext = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
+        await using IDatabaseContext dbContext = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
 
         IQueryable<int> matchingSaleManagerIds =
             dbContext.SaleManagers

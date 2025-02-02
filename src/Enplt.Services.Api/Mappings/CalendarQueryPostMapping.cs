@@ -58,7 +58,7 @@ public sealed class CalendarQueryRequest
     public SpokenLanguages? Language { get; init; }
 
     [JsonPropertyName("rating")]
-    public CustomerRating? Rating { get; init; }
+    public CustomerRatings? Rating { get; init; }
 }
 
 public sealed class CalendarQueryRequestValidator : AbstractValidator<CalendarQueryRequest>

@@ -1,0 +1,14 @@
+﻿[
+  {
+    AvailableCount: 1,
+    StartDate: 2024-05-03 10:30 +0
+  },
+  {
+    AvailableCount: 1,
+    StartDate: 2024-05-03 11:00 +0
+  },
+  {
+    AvailableCount: 2,
+    StartDate: 2024-05-03 11:30 +0
+  }
+]

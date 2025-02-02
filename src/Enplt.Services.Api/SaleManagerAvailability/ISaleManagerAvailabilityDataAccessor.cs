@@ -9,7 +9,7 @@ public interface ISaleManagerAvailabilityDataAccessor
         DateOnly date,
         IReadOnlyCollection<Products> products,
         SpokenLanguages language,
-        CustomerRating rating,
+        CustomerRatings rating,
         CancellationToken cancellationToken
     );
 }

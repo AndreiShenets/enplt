@@ -1,6 +1,6 @@
 ﻿namespace Enplt.Services.Api.Domain;
 
-public enum CustomerRating
+public enum CustomerRatings
 {
     Gold,
     Silver,

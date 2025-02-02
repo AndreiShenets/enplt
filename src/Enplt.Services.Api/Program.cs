@@ -38,7 +38,8 @@ public static class ProgramExtensions
             }
         );
 
-    public static void AddDatabaseContextFactory(this IServiceCollection services, IConfiguration configuration) =>
+    public static void AddDatabaseContextFactory(this IServiceCollection services, IConfiguration configuration)
+    {
         services.AddDbContextFactory<DatabaseContext>(
             options =>
             {
@@ -58,6 +59,9 @@ public static class ProgramExtensions
                 );
             }
         );
+
+        services.AddSingleton<IDatabaseContextFactory, DatabaseContextFactory>();
+    }
 
     public static void ConfigureWebHost(this WebApplicationBuilder builder) =>
         // As port 3000 is a hard requirement, I am hardcoding it here to not deal with appsettings.json and environment variables
