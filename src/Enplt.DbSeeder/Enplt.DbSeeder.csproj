@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Enplt.Services.Api\Enplt.Services.Api.csproj" />
+    </ItemGroup>
+</Project>
